@@ -1,0 +1,10 @@
+import styles from "./Header.module.css";
+import babaLogo from '../assets/baba-logo.png'
+export const Header = () => {
+  return (
+    <header className={styles.header}>
+        <img src={babaLogo} alt="logo baba europeu" />
+      <strong>Europeu Feed</strong>
+    </header>
+  );
+};

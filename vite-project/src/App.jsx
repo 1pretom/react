@@ -1,6 +1,13 @@
+import { Post } from "./Post";
+import { Header } from "./components/Header";
+import './global.css'
 
-function App() {
-  return <h1>hola mondo</h1>;
-}
-
-export default App;
+export const App = () => {
+  return (
+    <h1>
+      <Header/>
+      hola mondo
+      <Post author="wash" content="sim" />
+    </h1>
+  );
+};
