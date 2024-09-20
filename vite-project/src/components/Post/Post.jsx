@@ -7,11 +7,11 @@ export const Post = () => {
         <div className={styles.author}>
           <img className={styles.avatar} src="https://github.com/1pretom.png" />
           <div className={styles.authorInfo}>
-            <strong>Washington Damacena</strong>
-            <span>Web Developer</span>
+            <strong>Wash Damacena</strong>
+            <span>Namorado de marina</span>
           </div>
         </div>
-        <time title="11 de Maio às 08:13h" dateTime="2022-05-11 08:13:00">
+        <time title="11 de Maio às 08:13h" dateTime="2024-05-11 08:13:00">
           Publicado há 1h
         </time>
       </header>
@@ -22,10 +22,11 @@ export const Post = () => {
           aprendendo react. O nome do projeto é Baba Europeu 🚀
         </p>
         <p>
-          👉<a href="">mari.design/babaeuropeu</a>
+          <a href="">1pretom/babaeuropeu</a>
         </p>
         <p>
-          <a href="">#novoprojeto #babaeuropeu</a>
+          <a href="">#novoprojeto </a>
+          <a href="">#babaeuropeu</a>
         </p>
       </div>
     </article>

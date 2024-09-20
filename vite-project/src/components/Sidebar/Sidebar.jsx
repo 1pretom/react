@@ -12,7 +12,7 @@ export function Sidebar() {
       <div className={styles.profile}>
         <img className={styles.avatar} src="https://github.com/1pretom.png" />
         <strong>Wash Damacena</strong>
-        <span>Web Developer</span>
+        <span>Namorado de marina</span>
       </div>
 
       <footer>
