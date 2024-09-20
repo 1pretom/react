@@ -88,6 +88,7 @@
   visibility: visible;
   max-height: none;
 }
+/** Para pegar apenas o botão que é do tipo submit **/
 .commentForm button[type="submit"] {
   padding: 1rem 1.5rem;
   margin-top: 1rem;
