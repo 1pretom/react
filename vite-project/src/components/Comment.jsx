@@ -4,7 +4,10 @@ import { ThumbsUp, Trash } from "phosphor-react";
 export const Comment = () => {
   return (
     <div className={styles.comment}>
-      <img src="https://github.com/1pretom.png" alt="" />
+      <img
+        src="https://media.licdn.com/dms/image/v2/C4D03AQFkZPMQsiMisA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1660413521359?e=1732752000&v=beta&t=clGGhyXpLTw8HvGrayJBenVwQG7_fQ_Qht347z7eCsY"
+        alt=""
+      />
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
