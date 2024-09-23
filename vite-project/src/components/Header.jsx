@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import babaLogo from '../../assets/baba-logo.png'
+import babaLogo from '../assets/baba-logo.png'
 
 export function Header () {
   return (
