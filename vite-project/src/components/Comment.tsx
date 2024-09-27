@@ -26,7 +26,7 @@ export function Comment({ content, onDeleteComment }: CommentProps) {
     <div className={styles.comment}>
       <Avatar
         hasBorder={false}
-        src="https://github.com/diego3g.png"
+        src="https://github.com/1pretom.png"
         alt=""
       />
 
@@ -35,7 +35,7 @@ export function Comment({ content, onDeleteComment }: CommentProps) {
           <header>
             <div className={styles.authorAndTime}>
               <strong>Diego Fernandes</strong>
-              <time title="11 de Maio às 08:13h" dateTime="2022-05-11 08:13:00">Cerca de 1h atrás</time>
+              <time title="11 de Maio às 08:13h" dateTime="2024-09-27 08:13:00">Cerca de 1h atrás</time>
             </div>
 
             <button onClick={handleDeleteComment} title="Deletar comentário">
