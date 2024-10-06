@@ -58,6 +58,7 @@ export function Post({ post }: PostProps) {
   }
 
   function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
+    event.target.setCustomValidity('Vai postar vazio?');
   }
 
   function deleteComment(commentToDelete: string) {
