@@ -1,3 +1,3 @@
 # React
  
-This is a repository to my projects in react
+This is a repository to projects in react
