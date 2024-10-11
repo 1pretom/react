@@ -11,8 +11,8 @@ const posts = [
     id: 1,
     author: {
       avatarUrl: "https://github.com/diego3g.png",
-      name: "Diego Fernandes",
-      role: "CTO @Rocketseat",
+      name: "Washington Damacena",
+      role: "O cara da responsividade",
     },
     content: [
       { type: "paragraph", content: "Fala galera 👋" },
