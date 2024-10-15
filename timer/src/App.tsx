@@ -1,3 +1,11 @@
+import { ThemeProvider } from "styled-components";
+import { Button } from "./components/Button";
+import { defaultTheme } from "./styles/default";
+
 export const App = () => {
-  return <h1>Hello world</h1>;
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <Button variant="danger" />
+    </ThemeProvider>
+  );
 };
