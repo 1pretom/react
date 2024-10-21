@@ -1,7 +1,7 @@
 import * as S from "./Button.styles";
 
 interface ButtonProps {
-  variant?: S.ButtonVariant
+  variant?: S.ButtonVariant;
 }
 
 export const Button = ({ variant = "primary" }: ButtonProps) => {

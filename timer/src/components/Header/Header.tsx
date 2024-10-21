@@ -2,7 +2,8 @@ import * as S from "./styles";
 import { Scroll, Timer } from "phosphor-react";
 import babaLogo from "../../assets/baba-logo.svg";
 import { NavLink } from "react-router-dom";
-export function Header() {
+
+export const Header = () => {
   return (
     <S.HeaderContainer>
       <span>
@@ -18,4 +19,4 @@ export function Header() {
       </nav>
     </S.HeaderContainer>
   );
-}
+};
