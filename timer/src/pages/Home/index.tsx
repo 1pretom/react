@@ -3,7 +3,8 @@ import * as S from "./styles";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as zod from "zod";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { differenceInSeconds } from "date-fns";
 import { Cycle } from "./types";
 
 const newCycleFormValidationSchema = zod.object({
@@ -35,6 +36,7 @@ export const Home = () => {
       id,
       task: data.task,
       minutesAmount: data.minutesAmount,
+      startDate: new Date()
     }
     setCycles((state) => [...state, newCycle])
     setActiveCycleId(id)
@@ -49,6 +51,16 @@ export const Home = () => {
   const seconds = String(secondsAmount).padStart(2, '0')
   const task = watch("task");
   const isSubmitDisable = !task;
+
+  useEffect(() => {
+    if (activeCycle) {
+      setInterval(() => {
+        setAmountSecondsPassed(
+          differenceInSeconds(new Date(), activeCycle.startDate),
+        )
+      }, 1000)
+    }
+  }, [activeCycle])
 
   return (
     <S.HomeContainer>
