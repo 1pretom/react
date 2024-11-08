@@ -1,11 +1,17 @@
 import { HandPalm, Play } from "phosphor-react";
 import * as S from "./styles";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { Cycle } from "./types";
 import { Countdown } from "../../components/Countdown";
 import { NewCycleForm } from "../../components/NewCycleForm";
 
 
+interface CyclesContextType {
+  activeCycle: Cycle | undefined
+  activeCycleId: string | null
+  markCurrentCycleAsFinished: () => void
+}
+export const CyclesContext = createContext({} as CyclesContextType)
 
 export const Home = () => {
   const [cycles, setCycles] = useState<Cycle[]>([])
@@ -13,8 +19,17 @@ export const Home = () => {
   const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
 
 
-  function handleCreateNewCycle(data: NewCycleFormData) {
-    const id = String(new Date().getTime())
+  function markCurrentCycleAsFinished() {
+    setCycles((state) =>
+      state.map((cycle) => {
+        if (cycle.id === activeCycleId) {
+          return { ...cycle, finishedDate: new Date() }
+        } else {
+          return cycle
+        }
+      }),
+    )
+  }
 
     const newCycle: Cycle = {
       id,
@@ -41,24 +56,9 @@ export const Home = () => {
       }),
     )
     setActiveCycleId(null)
-  }
+  
 
-  const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0
 
-  const minutesAmount = Math.floor(currentSeconds / 60)
-  const secondsAmount = currentSeconds % 60
-
-  const minutes = String(minutesAmount).padStart(2, '0')
-  const seconds = String(secondsAmount).padStart(2, '0')
-
-  useEffect(() => {
-    if (activeCycle) {
-      document.title = `${minutes}:${seconds}`
-    }
-  }, [minutes, seconds, activeCycle])
-
-  const task = watch('task')
-  const isSubmitDisable = !task
 
   return (
     <S.HomeContainer>
