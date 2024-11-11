@@ -1,8 +1,13 @@
+import { useContext } from "react";
 import * as S from "./styles";
-export function History() {
+import { CyclesContext } from "../../context/CyclesContext";
+export const History = () => {
+  const { cycles } = useContext(CyclesContext)
+
   return (
     <S.HistoryContainer>
       <h1>Meu histórico</h1>
+      <pre>{JSON.stringify(cycles, null, 2)}</pre>
       <S.HistoryList>
         <table>
           <thead>
