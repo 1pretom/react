@@ -21,10 +21,12 @@ interface CyclesContextType {
     createNewCycle: (data: CreateCycleData) => void
     interruptCurrentCycle: () => void
 }
+
 export const CyclesContext = createContext({} as CyclesContextType)
 interface CyclesContextProviderProps {
     children: ReactNode
 }
+
 export const CyclesContextProvider = ({
     children,
 }: CyclesContextProviderProps) => {
