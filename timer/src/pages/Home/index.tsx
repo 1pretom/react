@@ -9,8 +9,8 @@ import {
   StartCountdownButton,
   StopCountdownButton,
 } from './styles'
-import { NewCycleForm } from '../../components/NewCycleForm'
-import { Countdown } from '../../components/Countdown'
+import { Countdown } from './Countdown'
+import { NewCycleForm } from './NewCycleForm'
 import { CyclesContext } from '../../context/CyclesContext'
 
 const newCycleFormValidationSchema = zod.object({
@@ -23,7 +23,7 @@ const newCycleFormValidationSchema = zod.object({
 
 type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 
-export const Home = () => {
+export function Home() {
   const { activeCycle, createNewCycle, interruptCurrentCycle } =
     useContext(CyclesContext)
 
@@ -36,11 +36,11 @@ export const Home = () => {
   })
 
   const { handleSubmit, watch, reset } = newCycleForm
-  const handleCreateNewCycle=(data: NewCycleFormData)=> {
+
+  function handleCreateNewCycle(data: NewCycleFormData) {
     createNewCycle(data)
     reset()
   }
-
 
   const task = watch('task')
   const isSubmitDisable = !task
