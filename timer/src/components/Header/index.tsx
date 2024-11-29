@@ -4,7 +4,7 @@ import { Scroll, Timer } from 'phosphor-react'
 import logoIgnite from '../../assets/baba-logo.png'
 import { NavLink } from 'react-router-dom'
 
-export function Header() {
+export const Header = () => {
   return (
     <HeaderContainer>
       <span>
