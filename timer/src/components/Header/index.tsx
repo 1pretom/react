@@ -1,14 +1,14 @@
 import { HeaderContainer } from './styles'
 import { Scroll, Timer } from 'phosphor-react'
 
-import logoIgnite from '../../assets/baba-logo.png'
+import logoBabaEuropeu from '../../assets/baba-logo.png'
 import { NavLink } from 'react-router-dom'
 
 export const Header = () => {
   return (
     <HeaderContainer>
       <span>
-        <img src={logoIgnite} style={{ width: 40 }} alt="" />
+        <img src={logoBabaEuropeu} style={{ width: 40 }} alt="" />
       </span>
       <nav>
         <NavLink to="/" title="Timer">
