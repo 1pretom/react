@@ -39,6 +39,22 @@
       "price": 5000,
       "type": "income",
       "createdAt": "2024-12-22T01:49:53.061Z"
+    },
+    {
+      "id": "b11a",
+      "category": "Gasto",
+      "description": "Presentes de natal",
+      "price": 500,
+      "type": "outcome",
+      "createdAt": "2024-12-22T16:25:31.221Z"
+    },
+    {
+      "id": "58e0",
+      "category": "Gasto",
+      "description": "Gasolina",
+      "price": 20,
+      "type": "outcome",
+      "createdAt": "2024-12-22T16:26:50.864Z"
     }
   ]
 }
