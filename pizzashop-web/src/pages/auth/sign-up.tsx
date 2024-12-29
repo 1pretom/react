@@ -6,13 +6,16 @@ import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+
 const signUpForm = z.object({
   restaurantName: z.string(),
   managerName: z.string(),
   phone: z.string(),
   email: z.string().email(),
 })
+
 type SignUpForm = z.infer<typeof signUpForm>
+
 export function SignUp() {
   const navigate = useNavigate()
   const {
@@ -20,6 +23,7 @@ export function SignUp() {
     handleSubmit,
     formState: { isSubmitting },
   } = useForm<SignUpForm>()
+ 
   async function handleSignUp(data: SignUpForm) {
     try {
       console.log(data)
@@ -34,6 +38,7 @@ export function SignUp() {
       toast.error('Erro ao cadastrar restaurante.')
     }
   }
+
   return (
     <>
       <Helmet title="Cadastro" />
