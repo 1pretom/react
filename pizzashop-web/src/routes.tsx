@@ -5,6 +5,7 @@ import { SignIn } from './pages/auth/sign-in'
 import { AppLayout } from './pages/layouts/app'
 import { AuthLayout } from './pages/layouts/auth'
 import { SignUp } from './pages/auth/sign-up'
+import { Orders } from './pages/orders/orders'
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: '/sign-up',
         element: <SignUp />,
+      },
+      {
+        path: '/orders',
+        element: <Orders />
       },
     ],
   },

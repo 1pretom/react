@@ -22,6 +22,7 @@ export function SignIn() {
     } = useForm<SignInForm>()
 
     async function handleSignIn(data: SignInForm) {
+        console.log("🚀 ~ handleSignIn ~ handleSignIn:", handleSignIn)
         try {
 
             console.log(data)
