@@ -39,7 +39,7 @@ import {
               <TableRow>
                 <TableCell className="text-muted-foreground">Cliente</TableCell>
                 <TableCell className="flex justify-end">
-                  Diego Schell Fernandes
+                  Washington Damacena
                 </TableCell>
               </TableRow>
               <TableRow>
@@ -51,7 +51,7 @@ import {
               <TableRow>
                 <TableCell className="text-muted-foreground">E-mail</TableCell>
                 <TableCell className="flex justify-end">
-                  diego@rocketseat.com.br
+                  washington.damacena@washington.com
                 </TableCell>
               </TableRow>
               <TableRow>
