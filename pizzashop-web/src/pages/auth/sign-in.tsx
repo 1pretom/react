@@ -1,3 +1,4 @@
+import { useMutation } from '@tanstack/react-query'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -7,7 +8,6 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { toast } from 'sonner'
 import { Link } from 'react-router-dom'
-import { useMutation } from '@tanstack/react-query'
 import { signIn } from '@/api/sign-in'
 
 const signInForm = z.object({
@@ -22,10 +22,9 @@ export function SignIn() {
         handleSubmit,
         formState: { isSubmitting },
     } = useForm<SignInForm>()
-
     const { mutateAsync: authenticate } = useMutation({
         mutationFn: signIn,
-    })
+      })
 
     async function handleSignIn(data: SignInForm) {
         try {
@@ -52,7 +51,7 @@ export function SignIn() {
                 <Button variant="ghost" asChild className="absolute right-8 top-8">
                     <Link to="/sign-up">Novo estabelecimento</Link>
                 </Button>
-
+                
                 <div className="flex w-[350px] flex-col justify-center gap-6">
                     <div className="flex flex-col gap-2 text-center">
                         <h1 className="text-2xl font-semibold tracking-tight">
