@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { toast } from 'sonner'
 import { Link } from 'react-router-dom'
+import { useMutation } from '@tanstack/react-query'
+import { signIn } from '@/api/sign-in'
 
 const signInForm = z.object({
     email: z.string().email(),
@@ -21,13 +23,13 @@ export function SignIn() {
         formState: { isSubmitting },
     } = useForm<SignInForm>()
 
+    const { mutateAsync: authenticate } = useMutation({
+        mutationFn: signIn,
+    })
+
     async function handleSignIn(data: SignInForm) {
-        console.log("🚀 ~ handleSignIn ~ handleSignIn:", handleSignIn)
         try {
-
-            console.log(data)
-
-            await new Promise((resolve) => setTimeout(resolve, 2000))
+            await authenticate({ email: data.email })
 
             toast.success('Enviamos um link de autenticacão para o seu e-mail! 🎉', {
                 action: {
@@ -50,7 +52,7 @@ export function SignIn() {
                 <Button variant="ghost" asChild className="absolute right-8 top-8">
                     <Link to="/sign-up">Novo estabelecimento</Link>
                 </Button>
-                
+
                 <div className="flex w-[350px] flex-col justify-center gap-6">
                     <div className="flex flex-col gap-2 text-center">
                         <h1 className="text-2xl font-semibold tracking-tight">
