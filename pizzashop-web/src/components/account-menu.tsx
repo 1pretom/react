@@ -1,6 +1,5 @@
-import { Building, ChevronDown, LogOut } from 'lucide-react'
-
-import { Button } from './ui/button'
+import { Building, ChevronDown, LogOut } from "lucide-react"
+import { Button } from "./ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,23 +8,27 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
-import { getProfile } from '@/api/get-profile'
-import { useQuery } from '@tanstack/react-query'
-import { getManagedRestaurant } from '@/api/get-managed-restaurant'
-import { Skeleton } from './ui/skeleton'
-import { Dialog, DialogTrigger } from '@radix-ui/react-dialog'
+import { getProfile } from "@/api/get-profile"
+import { useQuery } from "@tanstack/react-query"
+import { getManagedRestaurant } from "@/api/get-managed-restaurant"
+import { Skeleton } from "./ui/skeleton"
+import { Dialog, DialogTrigger } from "@radix-ui/react-dialog"
+import { StoreProfileDialog } from "./store-profile-dialog"
+
 
 export function AccountMenu() {
   const { data: profile, isLoading: isLoadingProfile } = useQuery({
     queryKey: ['profile'],
     queryFn: getProfile,
+    staleTime: Infinity,
   })
 
-  const { data: managedRestaurant, isLoading: isLoadingManagedRestaurant } = useQuery({
-    queryKey: ['managed-restaurant'],
-    queryFn: getManagedRestaurant,
-  })
-
+  const { data: managedRestaurant, isLoading: isLoadingManagedRestaurant } =
+    useQuery({
+      queryKey: ['managed-restaurant'],
+      queryFn: getManagedRestaurant,
+      staleTime: Infinity,
+    })
 
   return (
     <Dialog>
@@ -73,6 +76,8 @@ export function AccountMenu() {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+
+      <StoreProfileDialog />
     </Dialog>
   )
 }
