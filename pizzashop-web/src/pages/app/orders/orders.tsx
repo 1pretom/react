@@ -18,20 +18,34 @@ import { z } from 'zod'
 
 export function Orders() {
   const [searchParams, setSearchParams] = useSearchParams()
-  const pageIndex = z.coerce.number().transform((page) => page - 1).parse(searchParams.get('page') ?? '1')
+
+  const orderId = searchParams.get('orderId')
+  const customerName = searchParams.get('customerName')
+  const status = searchParams.get('status')
+
+  const pageIndex = z.coerce
+    .number()
+    .transform((page) => page - 1)
+    .parse(searchParams.get('page') ?? '1')
 
   const { data: result } = useQuery({
-    queryKey: ['orders', pageIndex],
-    queryFn: () => getOrders({ pageIndex }),
+    queryKey: ['orders', pageIndex, orderId, customerName, status],
+    queryFn: () =>
+      getOrders({
+        pageIndex,
+        orderId,
+        customerName,
+        status: status === 'all' ? null : status,
+      }),
   })
 
   function handlePaginate(pageIndex: number) {
     setSearchParams((state) => {
       state.set('page', (pageIndex + 1).toString())
+
       return state
     })
   }
-
 
   return (
     <>
@@ -64,8 +78,14 @@ export function Orders() {
               </TableBody>
             </Table>
           </div>
+
           {result && (
-            <Pagination pageIndex={result?.meta.pageIndex} onPageChange={handlePaginate} totalCount={result?.meta.totalCount} perPage={result?.meta.perPage} />
+            <Pagination
+              onPageChange={handlePaginate}
+              pageIndex={result.meta.pageIndex}
+              totalCount={result.meta.totalCount}
+              perPage={result.meta.perPage}
+            />
           )}
         </div>
       </div>
