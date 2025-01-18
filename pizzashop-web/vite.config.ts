@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import type { InlineConfig, UserConfig } from 'vite'
 
@@ -13,8 +14,8 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    setupFiles: ['./test/setup.js'],
-    evironment: 'happy-dom',
+    setupFiles: ['./test/setup.ts'],
+    environment: 'happy-dom',
   },
 } as UserConfig & {
   test: InlineConfig
