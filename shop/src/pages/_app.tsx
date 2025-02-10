@@ -1,4 +1,4 @@
-import { Container, Header } from "@/styles/app"
+import { Container, Header } from "@/styles/pages/app"
 import { globalStyles } from "@/styles/global"
 import { AppProps } from "next/app"
 import logoImg from '../assets/logo.svg'
