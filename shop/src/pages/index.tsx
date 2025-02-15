@@ -57,7 +57,10 @@ export const getStaticProps: GetStaticProps = async () => {
       id: product.id,
       name: product.name,
       imageUrl: product.images[0],
-      price: (price.unit_amount ?? 7990) / 100,
+      price: new Intl.NumberFormat('pr-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      }).format((price.unit_amount ?? 7990) / 100),
     }
   })
   const REVALIDATION_PAGE_TIME = 60 * 60 * 2
