@@ -6,10 +6,6 @@ import { useKeenSlider } from 'keen-slider/react'
 import { stripe } from "../lib/stripe"
 import { HomeContainer, Product } from "../styles/pages/home"
 
-import camiseta1 from '../assets/camisetas/1.png'
-import camiseta2 from '../assets/camisetas/2.png'
-import camiseta3 from '../assets/camisetas/3.png'
-
 import 'keen-slider/keen-slider.min.css'
 import Stripe from "stripe"
 
@@ -61,7 +57,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       id: product.id,
       name: product.name,
       imageUrl: product.images[0],
-      price: price.unit_amount / 100,
+      price: (price.unit_amount ?? 7990) / 100,
     }
   })
 
